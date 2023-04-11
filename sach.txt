@@ -1,0 +1,108 @@
+
+package com.mycompany.quanlikhosachh;
+
+public class sach implements Comparable<sach>{
+
+    public String name;
+        private String  tacgia, code, nhaxuatban;
+        private int namphathanh, giatien;
+    
+    public sach() {
+    }
+    
+    public sach(String code) {
+        this.code = code;
+    }
+
+    public sach(String name, String tacgia, String code, String nhaxuatban, int namphathanh, int giatien) {
+        this.name = name;
+        this.tacgia = tacgia;
+        this.code = code;
+        this.nhaxuatban = nhaxuatban;
+        this.namphathanh = namphathanh;
+        this.giatien = giatien;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+   
+    public String getTacgia() {
+        return tacgia;
+    }
+
+    public void setTacgia(String tacgia) {
+        this.tacgia = tacgia;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getNhaxuatban() {
+        return nhaxuatban;
+    }
+
+    public void setNhaxuatban(String nhaxuatban) {
+        this.nhaxuatban = nhaxuatban;
+    }
+
+    public int getNamphathanh() {
+        return namphathanh;
+    }
+
+    public void setNamphathanh(int namphathanh) {
+        this.namphathanh = namphathanh;
+    }
+
+    public int getGiatien() {
+        return giatien;
+    }
+
+    public void setGiatien(int giatien) {
+        this.giatien = giatien;
+    }
+
+    @Override
+    public String toString() {
+        return "name=" + name + ", tacgia=" + tacgia + ", code=" + code + ", nhaxuatban=" + nhaxuatban + ", namphathanh=" + namphathanh + ", giatien=" + giatien;
+    }
+
+    
+
+  @Override
+    public int compareTo(sach o) {
+        return this.code.compareTo(o.code);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof sach){
+            sach another = (sach) obj;
+            if(this.code.equals(another.code)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return code.compareTo(code);
+    }
+
+}
+
+
+       
+
+

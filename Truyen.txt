@@ -1,0 +1,42 @@
+package com.mycompany.quanlikhosachh;
+
+public class Truyen extends sach {
+
+    private String chude, theloai;
+
+    public Truyen(String code) {
+        super(code);
+    }
+
+    public Truyen() {
+    }
+
+    public Truyen(String chude, String theloai, String name, String tacgia, String code, String nhaxuatban, int namphathanh, int giatien) {
+        super(name, tacgia, code, nhaxuatban, namphathanh, giatien);
+        this.chude = chude;
+        this.theloai = theloai;
+    }
+
+    public String getChude() {
+        return chude;
+    }
+
+    public void setChude(String chude) {
+        this.chude = chude;
+    }
+
+    public String getTheloai() {
+        return theloai;
+    }
+
+    public void setTheloai(String theloai) {
+        this.theloai = theloai;
+    }
+
+    @Override
+    public String toString() {
+        return "Truyen{" + super.toString() + ", chude=" + chude + ", theloai=" + theloai + '}';
+    }
+
+    
+}

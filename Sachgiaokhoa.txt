@@ -1,0 +1,33 @@
+package com.mycompany.quanlikhosachh;
+
+public class Sachgiaokhoa extends sach {
+
+    private String lop;
+
+    public Sachgiaokhoa(String code) {
+        super(code);
+    }
+
+    public Sachgiaokhoa() {
+    }
+
+    public Sachgiaokhoa(String lop, String name, String tacgia, String code, String nhaxuatban, int namphathanh, int giatien) {
+        super(name, tacgia, code, nhaxuatban, namphathanh, giatien);
+        this.lop = lop;
+    }
+
+    public String getLop() {
+        return lop;
+    }
+
+    public void setLop(String lop) {
+        this.lop = lop;
+    }
+
+    @Override
+    public String toString() {
+        return "Sachgiaokhoa{"+ super.toString() + ", lop=" + lop + '}';
+    }
+
+    
+}

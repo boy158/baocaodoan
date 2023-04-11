@@ -1,0 +1,41 @@
+package com.mycompany.quanlikhosachh;
+
+public class Theloaikhac extends sach {
+
+    private String chude, theloai;
+
+    public Theloaikhac(String code) {
+        super(code);
+    }
+
+    public Theloaikhac() {
+    }
+
+    public Theloaikhac(String chude, String name, String theloai, String tacgia, String code, String nhaxuatban, int namphathanh, int giatien) {
+        super(name, tacgia, code, nhaxuatban, namphathanh, giatien);
+        this.chude = chude;
+    }
+
+    public String getChude() {
+        return chude;
+    }
+
+    public void setChude(String chude) {
+        this.chude = chude;
+    }
+
+    public String getTheloai() {
+        return theloai;
+    }
+
+    public void setTheloai(String theloai) {
+        this.theloai = theloai;
+    }
+
+    @Override
+    public String toString() {
+        return "Theloaikhac{"+ super.toString() + ", chude=" + chude + ", theloai=" + theloai + '}';
+    }
+
+   
+}

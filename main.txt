@@ -1,0 +1,195 @@
+
+package com.mycompany.quanlikhosachh;
+
+import java.util.Scanner;
+
+public class main {
+
+    public static void main(String[] args) {
+     
+        XuliKhosach qlk = new XuliKhosach();
+        Scanner sc = new Scanner(System.in);
+        int menu;
+
+        do {
+                System.out.println("--------------------------------------");
+                System.out.println("Menu lua chon --------");
+                System.out.println("1. Them thong tin sach");
+                System.out.println("2. In thong tin sach");
+                System.out.println("3. Kiem tra so luong sach");
+                System.out.println("4. Tim sach theo ten");
+                System.out.println("5. Tim sachtheo code");
+                System.out.println("6. Xap xep sach theo gia giam");
+                System.out.println("7. Xap xep sach theo gia tang");
+                System.out.println("8. xoa mot sach theo ma code");
+                System.out.println("9. Xoa toan bo sach trong kho");
+                System.out.println("0. Thoat");
+                System.out.print("Nhap vao lua chon cua ban: ");
+                         menu = sc.nextInt();
+                         
+                switch (menu) {
+                case 1:
+                    int menu_cp;
+                    do {
+                        System.out.println("Chao ban! CAm on ban da su dung chuong trinh");
+                        System.out.println("--------------------------------------------");
+                        System.out.println("1. sach giao khoa");
+                        System.out.println("2. Truyen ");
+                        System.out.println("3. The loai khac ");
+                        System.out.println("0. Quay lai chuong trinh");
+                        System.out.print("Nhap vao lua chon cua ban: ");
+                            menu_cp = sc.nextInt();
+                            
+                        switch (menu_cp) {
+                            case 1:{
+                                sc.nextLine();
+                                
+                                System.out.print("Nhap ma Sach: ");
+                                String name = sc.nextLine();
+
+                                System.out.print("Nhap ten sach: ");
+                                String code = sc.nextLine();
+
+                                System.out.print("Nhap vao sach giao khoa lop may: ");
+                                String lop = sc.nextLine();
+
+                                System.out.print("Nhap vao tac gia: ");
+                                String tacgia= sc.nextLine();
+
+                                System.out.print("Nhap vao nha xuat ban: ");
+                                String nhaxuatban = sc.nextLine();
+
+                                System.out.print("Nhap vao Nam phat hanh: ");
+                                int namphathanh = sc.nextInt();
+
+                                System.out.print("Nhap vao gia tien: ");
+                                int giatien = sc.nextInt();
+                                
+                                sach cpn = new Sachgiaokhoa(lop, name, tacgia, code, nhaxuatban, namphathanh, giatien);
+                                qlk.them_sach(cpn);
+                        }
+                                break;
+                        case 2: {
+                               sc.nextLine();
+                                
+                                System.out.print("Nhap ma Sach: ");
+                                String code = sc.nextLine();
+
+                                System.out.print("Nhap chu de sach: ");
+                                String chude = sc.nextLine();
+
+                                System.out.print("Nhap the loai sach: ");
+                                String theloai = sc.nextLine();
+
+                                System.out.print("Nhap ten sach: ");
+                                String name = sc.nextLine();
+
+                                System.out.print("Nhap vao tac gia: ");
+                                String tacgia = sc.nextLine();
+
+                                System.out.print("Nhap vao nha xuat ban: ");
+                                String nhaxuatban = sc.nextLine();
+
+                                System.out.print("Nhap vao namphathanh: ");
+                                int namphathanh = sc.nextInt();
+
+                                System.out.print("Nhap vao gia tien: ");
+                                int giatien = sc.nextInt();
+                                
+                               
+                               sach cpn = new Truyen(chude, name, theloai, tacgia, code, tacgia, namphathanh, giatien);
+                                qlk.them_sach(cpn);
+                            }
+                            break;
+                            case 3: {
+                                sc.nextLine();
+                                
+                               System.out.print("Nhap ma Sach: ");
+                                String code = sc.nextLine();
+
+                                System.out.print("Nhap chu de sach: ");
+                                String chude = sc.nextLine();
+
+                                System.out.print("Nhap the loai sach: ");
+                                String theloai = sc.nextLine();
+
+                                System.out.print("Nhap ten sach: ");
+                                String name = sc.nextLine();
+
+                                System.out.print("Nhap vao tac gia: ");
+                                String tacgia = sc.nextLine();
+
+                                System.out.print("Nhap vao nha xuat ban: ");
+                                String nhaxuatban = sc.nextLine();
+
+                                System.out.print("Nhap vao namphathanh: ");
+                                int namphathanh = sc.nextInt();
+
+                                System.out.print("Nhap vao gia tien: ");
+                                int giatien = sc.nextInt();
+                                sach cpn = new Theloaikhac(chude, name, theloai, tacgia, code, nhaxuatban, namphathanh, giatien);
+                                qlk.them_sach(cpn);
+                            }
+                            break;
+                            default:
+                                if (menu_cp == 0) {
+                                    System.out.println("Quay lai chuong trinh thanh cong");
+                                } else {
+                                    System.out.println("Vui long nhap lai lua chon");
+                                }
+                        }
+                    } while (menu_cp != 0);
+                    break;
+                case 2:
+                    if (qlk.kiem_tra_so_luong() == 0) {
+                        System.out.println("Hien khong co sach trong kho");
+                    } else {
+                        System.out.println("So sach hien tai la: " + qlk.kiem_tra_so_luong());
+                    }
+                    qlk.inThongTin();
+                    break;
+                case 3:
+                    System.out.println("So sach hien tai la: " + qlk.kiem_tra_so_luong());
+                    break;
+                case 4:
+                    sc.nextLine();
+                    System.out.print("Nhap ten can tim: ");
+                    String name = sc.nextLine();
+                    qlk.tim_may_anh_theo_ten(name);
+                    System.out.println("\n");
+                   
+                    break;
+                case 5:
+                    sc.nextLine();
+                    System.out.print("Nhap code can tim: ");
+                    String code = sc.nextLine();
+                    qlk.tim_may_anh_theo_code(code);
+                    System.out.println("\n");
+                    break;
+                case 6:
+                    qlk.xap_xep_theo_gia_giam();
+                    System.out.println("Thong tin sau khi giam la: ");
+                    qlk.inThongTin();
+                    break;
+                case 7:
+                    qlk.xap_xep_theo_gia_tang();
+                    System.out.println("Thong tin sau khi tang la: ");
+                    qlk.inThongTin();
+                    break;
+                case 8:
+                    sc.nextLine();
+                    System.out.print("Nhap vao ma code: ");
+                    code = sc.nextLine();
+                    sach mtm = new sach(code);
+                    System.out.println("Da xoa sach " + qlk.xoa_mot_sach(mtm));
+                    break;
+                default:
+                    if (menu == 0) {
+                        System.out.println("Thoat chuong trinh");
+                    } else {
+                        System.out.println("Vui long nhap lai lua chon");
+                    }
+            }
+        } while (menu != 0);
+    }
+}

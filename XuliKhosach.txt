@@ -1,0 +1,88 @@
+package com.mycompany.quanlikhosachh;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class XuliKhosach {
+
+    ArrayList<sach> msa = new ArrayList<>();
+
+    public XuliKhosach(ArrayList<sach> msa) {
+        this.msa = msa;                
+    }
+
+    public XuliKhosach() {
+    }
+    
+
+    public void them_sach(sach mt) {
+        this.msa.add(mt);
+        System.out.println("Da them thanh cong");
+    }
+
+    public void inThongTin() {
+        for (sach sachh : msa) {
+            System.out.println(sachh.toString());
+        }
+    }
+
+    public int kiem_tra_so_luong() {
+        return this.msa.size();
+    }
+
+    public void tim_sach_theo_ten(String name) {
+        for (sach sach2 : msa) {
+            if (sach2.getName().indexOf(name) >= 0) {
+                System.out.println(sach2);
+            } 
+        }
+    }
+
+    public void tim_sach_theo_code(String code) {
+        for (sach sach2 : msa) {
+            if (sach2.getCode().indexOf(code) >= 0) {
+                System.out.println(sach2);
+            }
+        }
+    }
+
+    public void xap_xep_theo_gia_giam() {
+        Collections.sort(msa, new Comparator<sach>() {
+            @Override
+            public int compare(sach mt1, sach mt2) {
+                if (mt1.getGiatien() > mt2.getGiatien()) {
+                    return -1;
+                } else if (mt1.getGiatien() < mt2.getGiatien()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+
+    public void xap_xep_theo_gia_tang() {
+        Collections.sort(msa, new Comparator<sach>() {
+            @Override
+            public int compare(sach mt1, sach mt2) {
+                if (mt1.getGiatien() < mt2.getGiatien()) {
+                    return -1;
+                } else if (mt1.getGiatien() > mt2.getGiatien()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+
+    public boolean xoa_mot_sach(sach mt) {
+        return this.msa.remove(mt);
+    }
+
+    public void xoa_tat_ca() {
+        this.msa.removeAll(msa);
+    }
+ 
+}
+
